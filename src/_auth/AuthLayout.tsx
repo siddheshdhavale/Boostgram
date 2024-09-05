@@ -2,20 +2,25 @@ import { Outlet, Navigate } from "react-router-dom";
 
 const AuthLayout = () => {
   const isAuthenticated = false;
-  // Opening a new Dynamic Block of code.
-  // This following code is if not authenticated react fragment which renders an outlet
   return (
     <>
-      { isAuthenticated ? (
-        <Navigate to ="/" />
-      ):
-      (
+      {isAuthenticated ? (
+        <Navigate to="/" />
+      ) : (
         <>
-          <section>
+          <section className="flex flex-1 justify-center items-center flex-col py-10">
             <Outlet />
           </section>
+
+          <img 
+            src="/assets/images/side-img.svg"
+            alt="logo"
+            className="hidden xl:block h-screen w-1/2 object-cover bg-no-repeat"
+
+          />
         </>
-      )}
+      )
+      }
     </>
   )
 }
